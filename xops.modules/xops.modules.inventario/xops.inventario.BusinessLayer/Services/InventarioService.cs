@@ -65,7 +65,7 @@ public class InventarioService : IInventarioService
         producto.SetNombre(productoDto.Nombre);
         producto.SetStock(productoDto.Stock);
         producto.SetPrecio(productoDto.Precio);
-        producto.SetCategoria(productoDto.Categoria);
+        // producto.SetCategoria(productoDto.Categoria);
         var result = await _productRepository.UpdateAsync(producto);
         this.validateChanges(result);
         

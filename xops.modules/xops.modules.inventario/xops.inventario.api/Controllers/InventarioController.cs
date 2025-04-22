@@ -34,8 +34,8 @@ namespace xops.inventario.api.Controllers
             return Ok(productos);
         }
 
-        [Route("DeleteProduct")]
-        [HttpPost("{productId}")]
+        [Route("DeleteProduct/{productId}")]
+        [HttpPost]
         public async Task<IActionResult> DeleteProduct(Guid productId){
             await _service.DeleteProductById(productId);
             return Ok();

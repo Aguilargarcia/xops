@@ -11,8 +11,8 @@ public class MappingProfile : Profile
     {
         CreateMap<CategoriaDto, Categoria>();
 
-        CreateMap<ProductoDto, Producto>().ConstructUsing((src, ctx) => new Producto(src.Nombre, src.MarcaId, src.Precio,
-                        ctx.Mapper.Map<Categoria>(src.Categoria)));
+        CreateMap<ProductoDto, Producto>().ForMember(des=> des.Id, opt=>opt.Ignore() ).ConstructUsing((src, ctx) => new Producto(src.Nombre, src.MarcaId, src.Precio,
+                        ctx.Mapper.Map<Categoria>(src.Categoria))).ReverseMap();
     }
 
 }
