@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using xops.common.Controller;
 using xops.inventario.core.Dto;
 using xops.inventario.core.Entities;
 using xops.inventario.core.Interfaces;

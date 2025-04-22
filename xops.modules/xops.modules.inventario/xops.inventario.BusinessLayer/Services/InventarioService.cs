@@ -19,7 +19,7 @@ public class InventarioService : IInventarioService
         _productRepository = productRepository;
     }
 
-    private void validateChanges(int results){
+    private void ValidateChanges(int results){
         if(results == 0){
             throw new BadRequestException("No se pudieron guardar los cambios");
         }
@@ -28,11 +28,8 @@ public class InventarioService : IInventarioService
     public async Task<Producto> AddProducto(ProductoDto productoDto)
     {
         Producto producto = _autoMapper.Map<Producto>(productoDto);
-        producto.SetStock(productoDto.Stock);
-        producto.SetPrecio(productoDto.Precio);
-
         int result = await _productRepository.AddAsync(producto);
-        this.validateChanges(result);
+        this.ValidateChanges(result);
         return producto;       
         
     }
@@ -66,8 +63,8 @@ public class InventarioService : IInventarioService
         producto.SetStock(productoDto.Stock);
         producto.SetPrecio(productoDto.Precio);
         // producto.SetCategoria(productoDto.Categoria);
-        var result = await _productRepository.UpdateAsync(producto);
-        this.validateChanges(result);
+        var result = await _productRepository.SaveChangesAsync();
+        this.ValidateChanges(result);
         
         return producto;
 
@@ -77,7 +74,7 @@ public class InventarioService : IInventarioService
     {
         Categoria _categoria = _autoMapper.Map<Categoria>(categoria);
         var result = await _categoriaRepository.AddAsync(_categoria);
-        this.validateChanges(result);
+        this.ValidateChanges(result);
         return _categoria;
     }
 
@@ -89,7 +86,7 @@ public class InventarioService : IInventarioService
         }
         curr.Nombre = categoria.Nombre;
         var results = await _categoriaRepository.UpdateAsync(curr);
-        this.validateChanges(results);
+        this.ValidateChanges(results);
         return curr;
     }
 
