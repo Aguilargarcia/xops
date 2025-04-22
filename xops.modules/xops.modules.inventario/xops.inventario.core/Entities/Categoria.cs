@@ -7,4 +7,8 @@ public class Categoria : Entity
 {
     public string Nombre {get; set;}
 
+    public Categoria(string nombre){
+        Nombre = nombre;
+    }
+
 }
