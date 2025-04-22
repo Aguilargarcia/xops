@@ -13,10 +13,10 @@ public class BaseRepository<T> : IRepository<T> where T : Entity
         _context = context;
         _db = context.Set<T>();
     }
-    public virtual async Task AddAsync(T entity)
+    public virtual async Task<int> AddAsync(T entity)
     {
         await _db.AddAsync(entity);
-        await this.SaveChangesAsync();
+        return await this.SaveChangesAsync();
     }
 
     public virtual async Task<IReadOnlyCollection<T>> GetAllAsync()
