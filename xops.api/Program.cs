@@ -1,4 +1,5 @@
 using xops.common;
+using xops.marca.api;
 
 public class Program
 {
@@ -12,6 +13,7 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddCommonServices();
         builder.Services.AddInventarioModule(builder.Configuration);
+        builder.Services.AddMarcaModule(builder.Configuration);
 
         var app = builder.Build();
 

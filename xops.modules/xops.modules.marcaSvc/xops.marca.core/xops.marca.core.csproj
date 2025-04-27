@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\xops.common\xops.common.csproj" />
+    <ProjectReference Include="..\..\xops.modules.inventario\xops.inventario.core\xops.inventario.core.csproj" />
+    <ProjectReference Include="..\..\xops.modules.userSvc\xops.user.core\xops.user.core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.9.0" />
+  </ItemGroup>
+
+</Project>

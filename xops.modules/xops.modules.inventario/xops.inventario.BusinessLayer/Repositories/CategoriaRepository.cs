@@ -1,4 +1,3 @@
-using System;
 using xops.common.Repository;
 using xops.inventario.businesslayer.Database;
 using xops.inventario.core.Entities;

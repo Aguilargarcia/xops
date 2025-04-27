@@ -1,16 +1,20 @@
-using System.Runtime.CompilerServices;
 using xops.common.Entities;
 
 namespace xops.inventario.core.Entities;
 
+
+
 public class Producto: Entity
 {
     public string Nombre {get; set;}
+    public string Genero {get; set;}
+    public string Tipo {get; set;}
     public Guid CategoriaId {get; private set;}
     public Categoria Categoria {get; private set;}
     public decimal Precio {get; private set;}
     public int Stock {get; private set;}
     public Guid MarcaId {get; init;}
+    public IReadOnlyCollection<Talla> Tallas {get; set;}
 
     protected Producto(){}
     public Producto(string nombre, Guid marcaId, decimal precio, Categoria categoria){

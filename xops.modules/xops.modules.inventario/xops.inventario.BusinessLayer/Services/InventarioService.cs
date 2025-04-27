@@ -1,5 +1,4 @@
-using System;
-using System.Collections.ObjectModel;
+
 using AutoMapper;
 using xops.common.Errors;
 using xops.inventario.core.Dto;
@@ -13,7 +12,11 @@ public class InventarioService : IInventarioService
     private readonly IProductoRepository _productRepository;
     private readonly ICategoriaRepository _categoriaRepository;
     private readonly IMapper _autoMapper;
-    public InventarioService(IProductoRepository productRepository, IMapper autoMapper, ICategoriaRepository categoriaRepository){
+    public InventarioService(
+        IProductoRepository productRepository, 
+        IMapper autoMapper, 
+        ICategoriaRepository categoriaRepository
+        ){
         _autoMapper = autoMapper;
         _categoriaRepository=categoriaRepository;
         _productRepository = productRepository;
@@ -62,7 +65,6 @@ public class InventarioService : IInventarioService
         producto.SetNombre(productoDto.Nombre);
         producto.SetStock(productoDto.Stock);
         producto.SetPrecio(productoDto.Precio);
-        // producto.SetCategoria(productoDto.Categoria);
         var result = await _productRepository.SaveChangesAsync();
         this.ValidateChanges(result);
         
