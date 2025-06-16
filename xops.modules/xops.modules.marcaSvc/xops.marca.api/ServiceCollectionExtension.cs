@@ -10,7 +10,7 @@ namespace xops.marca.api;
 public static class ServiceCollectionExtension
 {
     public static void AddMarcaModule(this IServiceCollection services, IConfiguration config){
-        var connection = config.GetConnectionString("MarcaConnection");
+        var connection = config.GetConnectionString("Connection");
         services.AddDbContext<MarcaDbContext>(opts => opts.UseSqlServer(connection));
         var builder = services.AddIdentityCore<Marca>();
         builder = new IdentityBuilder(builder.UserType, builder.Services);
