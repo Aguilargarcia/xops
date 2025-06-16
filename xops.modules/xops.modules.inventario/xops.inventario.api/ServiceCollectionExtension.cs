@@ -9,7 +9,7 @@ using xops.inventario.core.Profiles;
 
 public static class ServiceCollectionExtensions{
     public static void AddInventarioModule(this IServiceCollection services, IConfiguration configuration){
-        var connectionString = configuration.GetConnectionString("InventarioConnection");
+        var connectionString = configuration.GetConnectionString("Connection");
         services.AddDbContext<InventarioDbContext>(opts=> opts.UseSqlServer(connectionString));
         services.AddAutoMapper(typeof(MappingProfile));
         services.AddTransient<IProductoRepository, ProductoRepository>();
