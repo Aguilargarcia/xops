@@ -1,6 +1,8 @@
 using xops.common;
 using xops.user.api.ServiceCollectionExtensions;
+using xops.session.api.ServicesExtension;
 using xops.marca.api;
+using xops.api.midelwares;
 
 public class Program
 {
@@ -11,6 +13,7 @@ public class Program
         builder.Services.AddOpenApi();
         builder.Services.AddSwaggerGen();
         builder.Services.AddCommonServices();
+        builder.Services.AddSessionModule(builder.Configuration);
         builder.Services.AddUserModule(builder.Configuration);
         builder.Services.AddInventarioModule(builder.Configuration);
         builder.Services.AddMarcaModule(builder.Configuration);
@@ -23,6 +26,7 @@ public class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseSwaggerUI();
+        app.UseMiddleware<ExceptionMidelware>();
         app.UseHttpsRedirection();
         app.MapControllers();
         app.Run();

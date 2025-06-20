@@ -24,6 +24,7 @@
     <ProjectReference Include="..\xops.common\xops.common.csproj" />
     <ProjectReference Include="..\xops.modules\xops.modules.inventario\xops.inventario.api\xops.inventario.api.csproj" />
     <ProjectReference Include="..\xops.modules\xops.modules.marcaSvc\xops.marca.api\xops.marca.api.csproj" />
+    <ProjectReference Include="..\xops.modules\xops.modules.sessionSvc\xops.session.api\xops.session.api.csproj" />
     <ProjectReference Include="..\xops.modules\xops.modules.userSvc\xops.user.api\xops.user.api.csproj" />
   </ItemGroup>
 
