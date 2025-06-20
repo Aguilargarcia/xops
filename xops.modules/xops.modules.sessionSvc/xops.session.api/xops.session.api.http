@@ -1,0 +1,6 @@
+@xops.session.api_HostAddress = http://localhost:5221
+
+GET {{xops.session.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
